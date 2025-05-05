@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>System Health Dashboard</title>
+  <script>
+    async function loadData() {
+      const res = await fetch("data.json");
+      const data = await res.json();
+      document.getElementById("cpu").innerText = data.cpu + "%";
+      document.getElementById("mem").innerText = data.memory + "%";
+      document.getElementById("disk").innerText = data.disk + "%";
+      document.getElementById("up").innerText = data.uptime + " secs";
+    }
+    window.onload = loadData;
+  </script>
+</head>
+<body>
+  <h1>🚨 System Health Dashboard</h1>
+  <p>CPU: <span id="cpu"></span></p>
+  <p>Memory: <span id="mem"></span></p>
+  <p>Disk: <span id="disk"></span></p>
+  <p>Uptime: <span id="up"></span></p>
+</body>
+</html>
